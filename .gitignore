@@ -1,1 +1,27 @@
+# Maven
 /target/
+
+# Ant
+/build/
+/dist/
+
+# NetBeans
+/nbproject/private/
+
+# Archivos compilados
+*.class
+
+# Temporales y sistema
+*.tmp
+*.bak
+.DS_Store
+Thumbs.db
+
+# Configuración local / secretos
+.env
+*.env
+config.properties
+
+# Logs
+*.log
+logs/
