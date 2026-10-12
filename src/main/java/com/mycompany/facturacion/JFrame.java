@@ -6,6 +6,7 @@ public class JFrame extends javax.swing.JFrame {
 
     public JFrame() {
         initComponents();
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH); 
     }
 
     @SuppressWarnings("unchecked")
@@ -29,6 +30,7 @@ public class JFrame extends javax.swing.JFrame {
         JDesktop1 = new javax.swing.JDesktopPane();
         jPanel4 = new javax.swing.JPanel();
         nombreEmpresa = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -57,7 +59,7 @@ public class JFrame extends javax.swing.JFrame {
         cliente.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
         cliente.setForeground(new java.awt.Color(255, 255, 255));
         cliente.setText("Cliente >");
-        cliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        cliente.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         cliente.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 clienteMouseClicked(evt);
@@ -67,7 +69,7 @@ public class JFrame extends javax.swing.JFrame {
         trabajador.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
         trabajador.setForeground(new java.awt.Color(255, 255, 255));
         trabajador.setText("Trabajador >");
-        trabajador.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        trabajador.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         trabajador.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 trabajadorMouseClicked(evt);
@@ -77,7 +79,7 @@ public class JFrame extends javax.swing.JFrame {
         ventas.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
         ventas.setForeground(new java.awt.Color(255, 255, 255));
         ventas.setText("Ventas >");
-        ventas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ventas.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         ventas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ventasMouseClicked(evt);
@@ -87,7 +89,7 @@ public class JFrame extends javax.swing.JFrame {
         productos.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
         productos.setForeground(new java.awt.Color(255, 255, 255));
         productos.setText("Productos >");
-        productos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        productos.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         productos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 productosMouseClicked(evt);
@@ -126,7 +128,7 @@ public class JFrame extends javax.swing.JFrame {
         );
         JDesktop1Layout.setVerticalGroup(
             JDesktop1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 342, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -192,7 +194,9 @@ public class JFrame extends javax.swing.JFrame {
 
         nombreEmpresa.setFont(new java.awt.Font("Copperplate Gothic Bold", 0, 36)); // NOI18N
         nombreEmpresa.setForeground(new java.awt.Color(255, 255, 255));
-        nombreEmpresa.setText("EMPRESA JH");
+        nombreEmpresa.setText("EMPRESA CAPYTECH");
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logo capibara - copia.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -201,14 +205,20 @@ public class JFrame extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addComponent(nombreEmpresa)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(20, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(nombreEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18))
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -261,19 +271,23 @@ public class JFrame extends javax.swing.JFrame {
 
 //MUESTRA EL INTERNAL FRAME DE VENTAS
     private void ventasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ventasMouseClicked
-        this.JDesktop1.removeAll();
+        try {
+        FormularioVenta miInterfazVenta = new FormularioVenta();
 
-        com.mycompany.facturacion.ventasFrame ventanaInterna = new com.mycompany.facturacion.ventasFrame();
+        miInterfazVenta.setLocationRelativeTo(null);
+        miInterfazVenta.setExtendedState(javax.swing.JFrame.MAXIMIZED_BOTH);
+        miInterfazVenta.setVisible(true);
 
-        ventanaInterna.setSize(704, 342);
-        ventanaInterna.setClosable(true);
-        ventanaInterna.setResizable(true);
+        this.dispose();
 
-        this.JDesktop1.add(ventanaInterna);
-
-        this.JDesktop1.moveToFront(ventanaInterna);
-
-        ventanaInterna.setVisible(true);
+    } catch (Exception ex) {
+        javax.swing.JOptionPane.showMessageDialog(
+            this,
+            "Error al abrir el módulo de ventas:\n" + ex.getMessage(),
+            "Error de navegación",
+            javax.swing.JOptionPane.ERROR_MESSAGE
+        );
+    }
     }//GEN-LAST:event_ventasMouseClicked
 
 //MUESTRA EL INTERNAL FRAME DE TRABAJADOR
@@ -334,13 +348,14 @@ public class JFrame extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> new JFrame().setVisible(true));
-    }                                       
-
+    }     
+    
                                 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane JDesktop1;
     private javax.swing.JLabel carrito;
     private javax.swing.JLabel cliente;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
